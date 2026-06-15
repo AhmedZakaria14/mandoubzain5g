@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&display=swap');
+
+body {
+
+    direction: rtl;
+    font-family: "El Messiri", sans-serif;
+
+}
+
+:root {
+    --ebctaf3-dark: #000000;
+    --ebctaf3-whatsapp-color: #25D366;
+    --ebctaf3-white: #ffffff;
+
+    --ebctaf3-primary:#95c11f;
+    --ebctaf3-secondary: #444444;
+
+    --ebctaf3-space-xs: .4rem;
+    --ebctaf3-space-sm: .8rem;
+    --ebctaf3-space-md: 1.2rem;
+    --ebctaf3-space-lg: 2rem;
+    --ebctaf3-space-xl: 4rem;
+
+    --ebctaf3-br-lg: 50px;
+    --ebctaf3-transition: .35s cubic-bezier(.4, 0, .2, 1);
+
+    --ebctaf3-fs-lg: 1.125rem;
+    --ebctaf3-fs-xl: 1.5rem;
+
+
+}
+
+body {
+
+    direction: rtl;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* container */
+.ebctaf3-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--ebctaf3-space-md);
+    flex-wrap: wrap;
+
+}
+
+/* wrapper */
+.ebctaf3-btn-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* button */
+.ebctaf3-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--ebctaf3-space-xs);
+
+    padding: var(--ebctaf3-space-sm) var(--ebctaf3-space-md);
+
+    font-size: var(--ebctaf3-fs-lg);
+    color: var(--ebctaf3-white);
+    border-radius: var(--ebctaf3-br-lg);
+
+    background: linear-gradient(-45deg,
+            var(--ebctaf3-primary),
+            var(--ebctaf3-secondary),
+            var(--ebctaf3-primary));
+    background-size: 600%;
+
+    animation: ebctaf3-anime 16s linear infinite;
+    z-index: 2;
+}
+
+.ebctaf3-btn .fa-whatsapp {
+    font-size: var(--ebctaf3-fs-xl);
+}
+
+
+/* blur effect */
+.ebctaf3-btn-blur {
+    position: absolute;
+
+    padding: var(--ebctaf3-space-sm) var(--ebctaf3-space-md);
+    border-radius: var(--ebctaf3-br-lg);
+
+    background: linear-gradient(-45deg,
+            var(--ebctaf3-primary),
+            var(--ebctaf3-secondary),
+            var(--ebctaf3-primary));
+    background-size: 600%;
+
+    animation: ebctaf3-anime 16s linear infinite;
+    filter: blur(30px);
+
+    opacity: 0.8;
+    z-index: 1;
+
+}
+
+/* animation */
+@keyframes ebctaf3-anime {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+
+}

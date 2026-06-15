@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&display=swap');
+
+body {
+
+    direction: rtl;
+    font-family: "El Messiri", sans-serif;
+
+}
+
+:root {
+    --ebsrv2-container-width: 1440px;
+    --ebsrv2-dark: #000000;
+    --ebsrv2-white: #ffffff;
+    --ebsrv2-primary:#95c11f;
+    ;
+    --ebsrv2-secondary: #444444;
+    ;
+    --ebsrv2-container-width: 1440px;
+
+    --ebsrv2-space-xs: .4rem;
+    --ebsrv2-space-sm: .8rem;
+    --ebsrv2-space-md: 1.2rem;
+    --ebsrv2-space-lg: 2rem;
+    --ebsrv2-space-xl: 3rem;
+
+    --ebsrv2-fs-sm: .85rem;
+    --ebsrv2-fs-base: 1rem;
+    --ebsrv2-fs-md: 1.1rem;
+    --ebsrv2-fs-lg: 1.125rem;
+    --ebsrv2-fs-xl: 1.6rem;
+    --ebsrv2-transition: .35s cubic-bezier(.4, 0, .2, 1);
+}
+
+body {
+    font-family: "Cairo", sans-srvif;
+    direction: rtl;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* تنسيق القسم العام */
+.ebsrv2-services-section {
+    padding: 0;
+    background-color: var(--ebsrv2-white);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--ebsrv2-space-md);
+}
+
+/* الحاوية بنظام Flex لتوزيع المسافات */
+.ebsrv2-container {
+    max-width: var(--ebsrv2-container-width);
+    width: calc(100vw - 2em);
+    margin: 0 auto;
+    padding: 0 var(--ebsrv2-space-md);
+    /* display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; */
+    gap: var(--ebsrv2-space-lg);
+}
+
+/* تنسيق منطقة العنوان */
+.ebsrv2-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--ebsrv2-space-sm);
+}
+
+/* العنوان الرئيسي وكلمة التمييز */
+.ebsrv2-title {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: bold;
+    color: var(--ebsrv2-secondary);
+}
+
+.ebsrv2-title-highlight {
+    color: var(--ebsrv2-primary);
+}
+
+/* الخط السفلي الأنيق للعنوان (بدون الأيقونة الداخلية) */
+.ebsrv2-underline {
+    width: 80px;
+    height: 2px;
+    background-color: var(--ebsrv2-secondary);
+    position: relative;
+}
+
+/* شبكة الكروت (Grid System) */
+.ebsrv2-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--ebsrv2-space-md);
+}
+
+/* تصميم كارت الخدمة */
+.ebsrv2-card {
+    background-color: var(--ebsrv2-white);
+    border-top: 5px solid var(--ebsrv2-primary);
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+    padding: var(--ebsrv2-space-sm);
+
+    /* استخدام Flex للتحكم بالمسافات الداخلية بدل الهوامش المتكررة */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--ebsrv2-space-sm);
+
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 1;
+    transition: var(--ebsrv2-transition);
+}
+
+/* تأثير الستارة الخلفية المخفية للأعلى */
+.ebsrv2-card::after {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* تدرج لوني يعتمد فقط على متغيراتك */
+    background: linear-gradient(135deg, var(--ebsrv2-secondary), var(--ebsrv2-primary));
+    z-index: -1;
+    transition: var(--ebsrv2-transition);
+}
+
+/* حاوية الصورة المتجاوبة (بديل الأيقونة) */
+.ebsrv2-img-wrapper {
+    width: 100%;
+    height: fit-content;
+    background-color: var(--ebsrv2-white);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: var(--ebsrv2-transition);
+}
+
+/* ضبط الصورة بداخل الحاوية */
+.ebsrv2-img {
+    width: 100%;
+    aspect-ratio: 1 / 0.7;
+    object-fit: fill;
+    transition: var(--ebsrv2-transition);
+}
+
+/* عنوان الخدمة داخل الكارت */
+.ebsrv2-card-title {
+    font-size: var(--ebsrv2-fs-lg);
+    font-weight: 600;
+    color: var(--ebsrv2-secondary);
+    transition: var(--ebsrv2-transition);
+}
+
+/* وصف الخدمة داخل الكارت */
+.ebsrv2-card-desc {
+    font-size: var(--ebsrv2-fs-sm);
+    color: var(--ebsrv2-secondary);
+    opacity: 0.8;
+    /* line-height: 1.6; */
+    transition: var(--ebsrv2-transition);
+}
+
+/* تأثيرات التمرير (Hover) على الكارت العادي */
+.ebsrv2-card:hover {
+    border-top-color: transparent;
+    /* إخفاء الإطار العلوي */
+    transform: translateY(-5px);
+}
+
+.ebsrv2-card:hover::after {
+    top: 0;
+    /* نزول ستارة التدرج اللوني */
+}
+
+.ebsrv2-card:hover .ebsrv2-card-title,
+.ebsrv2-card:hover .ebsrv2-card-desc {
+    color: var(--ebsrv2-white);
+}
+
+/* تنسيق الكارت المميز (كارت الشعار) الذي يظهر متدرجاً دائماً */
+.ebsrv2-card-special {
+    border-top-color: transparent;
+}
+
+.ebsrv2-card-special::after {
+    top: 0;
+}
+
+.ebsrv2-card-special .ebsrv2-card-title,
+.ebsrv2-card-special .ebsrv2-card-desc {
+    color: var(--ebsrv2-white);
+    opacity: 1;
+}
+
+@media (max-width:320px) {
+    .ebsrv2-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--ebsrv2-space-lg);
+    }
+}

@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&display=swap');
+
+body {
+
+    direction: rtl;
+    font-family: "El Messiri", sans-serif;
+
+}
+
+:root {
+    --ebctad3-dark: #000000;
+    --ebctad3-whatsapp-color: #25D366;
+    --ebctad3-call-color: #1877F2;
+
+    --ebctad3-white: #ffffff;
+
+    --ebctad3-primary:#95c11f;
+    --ebctad3-secondary: #444444;
+
+    --ebctad3-space-xs: .4rem;
+    --ebctad3-space-sm: .8rem;
+    --ebctad3-space-md: 1.2rem;
+    --ebctad3-space-lg: 2rem;
+    --ebctad3-space-xl: 4rem;
+
+    --ebctad3-br-lg: 50px;
+    --ebctad3-transition: .35s cubic-bezier(.4, 0, .2, 1);
+
+    --ebctad3-fs-lg: 1.125rem;
+    --ebctad3-fs-xl: 1.5rem;
+
+
+}
+
+body {
+
+    direction: rtl;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ================================= */
+/* ================================= */
+/* ================================= */
+/* تنسيق الحاوية الأساسية باستخدام Flexbox والـ Gap */
+.ebctad3-button-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--ebctad3-space-md);
+    padding: var(--ebctad3-space-xl);
+
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+
+    z-index: 100;
+}
+
+/* التنسيق العام للأزرار */
+.ebctad3-button {
+
+    display: inline-block;
+    padding: var(--ebctad3-space-sm) var(--ebctad3-space-md);
+
+    color: var(--ebctad3-white);
+    border: 2px solid var(--ebctad3-white);
+    border-radius: var(--ebctad3-br-lg);
+
+    font-size: var(--ebctad3-fs-lg);
+    text-transform: uppercase;
+
+    transition: var(--ebctad3-transition);
+
+    display: flex;
+    flex-direction: row;
+    gap: var(--ebctad3-space-sm);
+    z-index: 1000;
+
+    cursor: pointer;
+
+    direction: ltr;
+}
+
+
+/* 1. تأثير الهزاز (Wiggle) */
+.ebctad3-button-wiggle {
+    animation: ebctad3-wiggle 4s infinite;
+    background-color: var(--ebctad3-call-color);
+}
+
+@keyframes ebctad3-wiggle {
+
+    0%,
+    50%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    10% {
+        transform: scale(0.9);
+    }
+
+    15% {
+        transform: scale(1.01) rotate(-3deg);
+    }
+
+    25% {
+        transform: scale(1.01) rotate(2deg);
+    }
+
+    35% {
+        transform: scale(1.01) rotate(-2deg);
+    }
+}
+
+
+/* 3. تأثير الطفو (Float) */
+.ebctad3-button-float {
+    animation: ebctad3-float 1.5s ease-in-out alternate infinite;
+    background-color: var(--ebctad3-whatsapp-color);
+}
+
+.ebctad3-button-float .fa-whatsapp {
+    font-size: var(--ebctad3-fs-xl);
+    font-weight: bold;
+}
+
+@keyframes ebctad3-float {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-5px);
+    }
+}
+
+@media (max-width:768px) {
+    .ebctad3-button-container {
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+
+        gap: var(--ebctad3-space-sm);
+        padding: var(--ebctad3-space-xs);
+
+        position: fixed;
+        bottom: 0px;
+        left: 0;
+        right: 0;
+        width: fit-content;
+        margin: 0 auto;
+        width: 100%;
+
+        background-color: var(--ebctad3-white);
+    }
+
+    .ebctad3-button {
+        padding: var(--ebctad3-space-xs) var(--ebctad3-space-sm);
+    }
+}
+
+@media (max-width:375px) {
+    .ebctad3-button {
+        padding: 4px 7px;
+        gap: var(--ebctad3-space-xs);
+
+    }
+}

@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&display=swap');
+
+body {
+
+    direction: rtl;
+    font-family: "El Messiri", sans-serif;
+
+}
+
+:root {
+    --ebpt2-dark: #000000;
+    --ebpt2-white: #ffffff;
+    --ebpt2-primary:#95c11f;
+    ;
+    --ebpt2-secondary: #444444;
+    ;
+
+    --ebpt2-container-width: 1440px;
+
+    --ebpt2-space-xs: .4rem;
+    --ebpt2-space-sm: .8rem;
+    --ebpt2-space-md: 1.2rem;
+    --ebpt2-space-lg: 2rem;
+    --ebpt2-space-xl: 3rem;
+
+
+    --ebpt2-fs-base: 1rem;
+
+    --ebpt2-fs-lg: 1.125rem;
+    --ebpt2-fs-xl: 1.6rem;
+    --ebpt2-transition: .35s cubic-bezier(.4, 0, .2, 1);
+}
+
+body {
+
+    direction: rtl;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* تنسيق القسم والحاوية */
+.ebpt2-why-us {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: var(--ebpt2-space-lg);
+    background-color: var(--ebpt2-white);
+    padding: 0;
+}
+
+.ebpt2-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--ebpt2-space-md);
+}
+
+/* العنوان الرئيسي وكلمة التمييز */
+.ebpt2-title {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: bold;
+    color: var(--ebpt2-secondary);
+}
+
+.ebpt2-title-highlight {
+    color: var(--ebpt2-primary);
+}
+
+/* الخط السفلي الأنيق للعنوان  */
+.ebpt2-underline {
+    width: 80px;
+    height: 2px;
+    background-color: var(--ebpt2-secondary);
+    position: relative;
+}
+
+.ebpt2-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: var(--ebpt2-space-xl);
+    max-width: var(--ebpt2-container-width);
+    width: calc(100vw - 3em);
+    margin: 0 auto;
+}
+
+/* تصميم البطاقة الأساسي (الميلان والخلفية) */
+.ebpt2-card {
+    display: flex;
+    flex-direction: column;
+    width: 440px;
+    /* background-color: color-mix(in srgb, var(--ebpt2-primary) 5%, var(--ebpt2-white)); */
+    transform: skewX(-6deg);
+    transition: var(--ebpt2-transition);
+    overflow: hidden;
+    box-shadow: 0 15px 30px color-mix(in srgb, var(--ebpt2-primary) 10%, transparent);
+
+    /* لمنع أي خروج للعناصر عن حواف الميلان */
+}
+
+/* عكس الميلان للمحتوى الداخلي ليصبح مستقيماً */
+.ebpt2-card-header>*,
+.ebpt2-card-body>* {
+    transform: skewX(12deg);
+}
+
+/* رأس البطاقة الملون (الجزء العلوي) */
+.ebpt2-card-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--ebpt2-secondary);
+    /* padding: var(--ebpt2-space-xs); */
+    transition: var(--ebpt2-transition);
+    align-content: center;
+    text-align: center;
+}
+
+/* الرقم التعريفي بديل الأيقونة */
+.ebpt2-card-num {
+    font-size: clamp(3rem, 4vw, 5em);
+    font-weight: 700;
+    color: var(--ebpt2-white);
+    line-height: 1;
+}
+
+/* جسد البطاقة (الجزء السفلي الذي يحتوي على النصوص) */
+.ebpt2-card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--ebpt2-space-xs);
+    padding: var(--ebpt2-space-sm);
+    flex-grow: 1;
+}
+
+/* عنوان البطاقة الجذاب */
+.ebpt2-card-title {
+    font-size: clamp(var(--ebpt2-fs-lg), 3vw, var(--ebpt2-fs-xl));
+    font-weight: 700;
+    color: var(--ebpt2-primary);
+    margin: 0;
+}
+
+/* وصف البطاقة الأنيق */
+.ebpt2-card-desc {
+    font-size: var(--ebpt2-fs-base);
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--ebpt2-black);
+    margin: 0;
+}
+
+/* تأثيرات التمرير (Hover Effects) */
+.ebpt2-card:hover {
+    transform: skewX(-12deg) translateY(-10px);
+
+}
+
+.ebpt2-card:hover .ebpt2-card-header {
+    background-color: var(--ebpt2-primary);
+}
+
+.ebpt2-card:hover .ebpt2-card-num {
+    color: var(--ebpt2-white);
+    opacity: 1;
+}
+
+@media (max-width:480px) {
+    .ebpt2-card {
+        display: flex;
+        flex-direction: column;
+        width: calc(100% - 2em);
+    }
+}
+
+@media (max-width:320px) {
+    .ebpt2-card {
+        display: flex;
+        flex-direction: column;
+        width: calc(100% - 2em);
+    }
+}

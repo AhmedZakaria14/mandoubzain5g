@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&display=swap');
+
+body {
+
+    direction: rtl;
+    font-family: "El Messiri", sans-serif;
+
+}
+
+:root {
+    --ebtb3-white: #ffffff;
+    --ebtb3-dark: #000000;
+    --ebtb3-primary:#95c11f;
+    --ebtb3-secondary: #444444;
+    --ebtb3-gray: #cccccc;
+    --ebtb3-icon-shadow: 0 0 4px#95c11f;
+
+    /* ===== SPACING ===== */
+    --ebtb3-space-xs: .4rem;
+    --ebtb3-space-sm: .8rem;
+
+    /* ===== FONT SCALE ===== */
+
+    --ebtb3-fs-lg: 1.125rem;
+    --ebtb3-fs-xl: 1.6rem;
+
+}
+
+.ebtb3-top-bar {
+    color: var(--ebtb3-dark);
+    text-align: center;
+    padding-block: var(--ebtb3-space-xs);
+    background-color: var(--ebtb3-primary);
+}
+
+.ebtb3-top-bar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.ebtb3-social-icons-top-bar {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: var(--ebtb3-space-xs);
+}
+
+.ebtb3-social-icons-top-bar a {
+    text-decoration: none;
+}
+
+.ebtb3-social-icon-top-bar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow:
+        inset 2px 2px 2px color-mix(in srgb, var(--ebtb3-dark) 5%, transparent),
+        inset -2px -2px 2px color-mix(in srgb, var(--ebtb3-white) 50%, transparent),
+        2px 2px 2px color-mix(in srgb, var(--ebtb3-dark) 5%, transparent),
+        -2px -2px 2px color-mix(in srgb, var(--ebtb3-white) 50%, transparent);
+
+    /* background-color: var(--ebtb3-white); */
+
+    padding: 8px;
+    border-radius: 10px;
+    color: var(--ebtb3-white);
+    font-size: var(--ebtb3-fs-lg);
+    font-weight: bold;
+    border: 4px solid var(--ebtb3-white);
+}
+
+.ebtb3-social-icon-top-bar .fa-whatsapp {
+    font-weight: bold;
+}
+
+
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+
+
+
+@media (max-width: 1440px) {
+    .ebtb3-top-bar-container {
+        padding-inline: var(--ebtb3-space-sm);
+    }
+}
+
+@media (max-width: 760px) {
+
+    .ebtb3-top-bar {
+        height: auto;
+        text-align: center;
+    }
+
+    .ebtb3-social-icon-top-bar {
+        font-size: 18px;
+        font-weight: bold;
+    }
+}

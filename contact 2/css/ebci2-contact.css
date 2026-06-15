@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&display=swap');
+
+body {
+
+    direction: rtl;
+    font-family: "El Messiri", sans-serif;
+
+}
+
+:root {
+    --ebci2-white: #ffffff;
+    --ebci2-dark: #000000;
+    --ebci2-primary:#95c11f;
+    --ebci2-secondary: #444444;
+    --ebci2-gray: #cccccc;
+
+    /* ============================= */
+    --ebci2-space-sm: .5rem;
+    --ebci2-space-md: 1.2rem;
+    --ebci2-space-lg: 2rem;
+    --ebci2-space-xl: 3rem;
+
+    /* ================= */
+    --ebci2-fs-md: 1.1rem;
+    --ebci2-fs-lg: 1.125rem;
+    --ebci2-fs-xl: 1.6rem;
+}
+
+body {
+
+    direction: rtl;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* ============================================ */
+.ebci2-contact-section {
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--ebci2-space-lg);
+
+    opacity: 0;
+    transform: translateY(60px);
+    width: 100%;
+}
+
+.ebci2-contact-section.show {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 1.2s ease;
+}
+
+.ebci2-contact-section-title {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 900;
+    color: var(--ebci2-secondary);
+}
+
+.ebci2-contact-section-text-primary {
+    color: var(--ebci2-primary);
+}
+
+/* =============================== */
+.ebci2-contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--ebci2-space-md);
+    width: 80%;
+    margin: 0% auto;
+}
+
+
+/* ================================ */
+.ebci2-contact-card {
+    background-color: var(--ebci2-white);
+    padding: var(--ebci2-space-md);
+    border-radius: 20px;
+    border: 1px solid var(--ebci2-gray);
+    transition: var(--transition);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--ebci2-space-sm);
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.ebci2-contact-card:hover {
+    transform: translateY(-5px);
+}
+
+.ebci2-contact-card.show {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.8s ease;
+}
+
+/* ================================= */
+
+.ebci2-contact-icon i {
+    font-weight: 550;
+    font-size: var(--ebci2-fs-xl);
+}
+
+.ebci2-contact-icon {
+    width: 65px;
+    height: 65px;
+    background-color: var(--ebci2-dark);
+    color: var(--ebci2-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ebci2-contact-card-title {
+    color: var(--ebci2-dark);
+    font-size: var(--ebci2-fs-lg);
+    font-weight: 800;
+}
+
+.ebci2-contact-card-text {
+    color: var(--ebci2-dark);
+    font-size: var(--ebci2-fs-md);
+    font-weight: 500;
+}
+
+.ebci2-contact-address-container {
+    border-top: 1px solid var(--ebci2-gray);
+    transition: transform 0.4s ease-in;
+    width: 80%;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--ebci2-space-md);
+    padding-top: var(--ebci2-space-md);
+}
+
+.ebci2-contact-address-container:hover {
+    transform: scale(1.1);
+}
+
+.ebci2-contact-address-title {
+    text-align: center;
+    align-content: center;
+    width: fit-content;
+    margin: 0 auto;
+
+    font-size: var(--ebci2-fs-lg);
+    font-weight: 900;
+
+}
+
+.ebci2-contact-address-title h3 {
+    color: var(--ebci2-dark);
+
+}
+
+.ebci2-contact-address-title p {
+    color: var(--ebci2-primary);
+    font-weight: bold;
+}
+
+
+/* التجاوب للهواتف */
+@media (max-width: 992px) {
+    .ebci2-contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .ebci2-contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+}

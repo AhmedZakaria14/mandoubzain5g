@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&display=swap');
+
+body {
+
+    direction: rtl;
+    font-family: "El Messiri", sans-serif;
+
+}
+
+:root {
+    --ebatc2-dark: #000000;
+    --ebatc2-white: #ffffff;
+    --ebatc2-primary:#95c11f;
+    --ebatc2-secondary: #444444;
+    --ebatc2-overlay: rgba(141, 138, 138, 0.781);
+
+    --ebatc2-container-width: 1440px;
+
+    --ebatc2-space-xs: .4rem;
+    --ebatc2-space-sm: .8rem;
+    --ebatc2-space-md: 1.2rem;
+    --ebatc2-space-lg: 2rem;
+    --ebatc2-space-xl: 3rem;
+
+    --ebatc2-fs-sm: .85rem;
+    --ebatc2-fs-base: 1rem;
+    --ebatc2-fs-md: 1.1rem;
+    --ebatc2-fs-lg: 1.125rem;
+    --ebatc2-fs-xl: 1.6rem;
+    --ebatc2-fs-2xl: 1.25rem;
+
+    --ebatc2-transition: .35s cubic-bezier(.4, 0, .2, 1);
+}
+
+body {
+
+    direction: rtl;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================================
+   تنسيق القسم والحاوية الأساسية
+========================================= */
+.ebatc2-counter-section {
+    /* يمكنك تغيير مسار الصورة أو الاكتفاء بلون الخلفية */
+    /* background: url('../../img/logo.webp') no-repeat center/cover; */
+    /* background-color: var(--ebatc2-primary); */
+
+    background:
+
+        linear-gradient(var(--ebatc2-secondary),
+
+            var(--ebatc2-primary)),
+
+        url("../../img/logo.webp") center / contain;
+
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* لون بديل في حال عدم تحميل الصورة */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--ebatc2-space-xl);
+
+    width: 100%;
+}
+
+.ebatc2-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--ebatc2-space-md);
+}
+
+/* العنوان الرئيسي وكلمة التمييز */
+.ebatc2-title {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: bold;
+    color: var(--ebatc2-white);
+}
+
+.ebatc2-title-highlight {
+    color: var(--ebatc2-white);
+}
+
+/* الخط السفلي الأنيق للعنوان  */
+.ebatc2-underline {
+    width: 80px;
+    height: 2px;
+    background-color: var(--ebatc2-primary);
+    position: relative;
+}
+
+.ebatc2-header p {
+    color: var(--ebatc2-white);
+
+}
+
+.ebatc2-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: calc(var(--ebatc2-space-md) * 2);
+    /* مسافة مرنة بين العنوان والعدادات */
+    width: 100%;
+    max-width: var(--ebatc2-container-width);
+    padding-block: var(--ebatc2-space-md);
+}
+
+.ebatc2-main-title {
+    color: var(--ebatc2-white);
+    font-size: clamp(var(--ebatc2-fs-xl), 4vw, 2.5rem);
+    font-weight: 700;
+    text-align: center;
+}
+
+/* =========================================
+   تنسيق شبكة العدادات
+========================================= */
+.ebatc2-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--ebatc2-space-xl);
+    width: 100%;
+}
+
+.ebatc2-counter-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--ebatc2-space-xs);
+    /* مسافة مرنة بين الدائرة والنص بدون Margin */
+}
+
+/* =========================================
+   تنسيق الدائرة الزجاجية المتجاوبة
+========================================= */
+.ebatc2-count-circle {
+    /* استخدام clamp للحصول على دائرة مثالية تتغير حسب حجم الشاشة */
+    width: clamp(120px, 15vw, 180px);
+    height: clamp(120px, 15vw, 180px);
+    border-radius: 50%;
+    border: 2px solid var(--ebatc2-white);
+    /* حدود مثالية */
+
+    /* تأثير الزجاج الجذاب المطابق للصورة */
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--ebatc2-transition);
+}
+
+/* =========================================
+   تنسيق النصوص داخل وخارج الدائرة
+========================================= */
+.ebatc2-count-number {
+    color: var(--ebatc2-white);
+    font-weight: 700;
+    /* خط מתجاوب يبدأ من fs-xl ويصل لأحجام كبيرة في الشاشات الواسعة */
+    font-size: clamp(var(--ebatc2-fs-xl), 5vw, 3.5rem);
+}
+
+.ebatc2-count-title {
+    color: var(--ebatc2-white);
+    font-weight: 700;
+    /* الحجم الخارجي المستثنى بناءً على طلبك ليكون متجاوباً بدقة */
+    font-size: clamp(1rem, 1.5vw, 1.3rem);
+}
