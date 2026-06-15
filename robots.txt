@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Block admin or temp paths (none currently but good practice)
+Disallow: /127.0.0.1_8081/
+
+Sitemap: https://mandoubzain5g.com/sitemap.xml
