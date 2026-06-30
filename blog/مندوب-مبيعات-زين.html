@@ -137,80 +137,65 @@
   gtag('config', 'G-1RSX3H16BW');
 </script>
 
+
+
 <style>
 .ebftr2-footer-bottom {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
-    padding: 20px 0;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    gap: 15px;
+    padding: 30px 0;
+    border-top: 1px solid rgba(255,255,255,0.05);
 }
-.nashar-hub-credit {
+.nashar-hub-container {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    gap: 12px;
+    font-family: 'Cairo', sans-serif;
 }
-.credit-text {
-    font-size: 11px;
-    letter-spacing: 1px;
-    color: #888;
-    text-transform: uppercase;
+.design-text {
+    color: #9ca3af;
+    font-size: 14px;
 }
-.nashar-link {
-    display: inline-flex;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 5px 15px;
-    border-radius: 50px;
-    text-decoration: none !important;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+.nashar-btn {
     position: relative;
     overflow: hidden;
-}
-.nashar-link span {
+    padding: 6px 16px;
+    border-radius: 8px;
+    background: linear-gradient(to right, rgba(0, 217, 90, 0.1), rgba(0, 217, 90, 0.05));
+    border: 1px solid rgba(0, 217, 90, 0.2);
     transition: all 0.3s ease;
+    text-decoration: none !important;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
-.en-name {
-    color: #fff;
-    font-weight: 600;
-    font-size: 14px;
-}
-.ar-name {
-    color: #00d95a; /* لون زين الأخضر */
-    font-weight: 600;
-    font-size: 14px;
-}
-.separator {
-    color: #444;
-    margin: 0 8px;
-}
-.nashar-link:hover {
-    background: rgba(0, 217, 90, 0.1);
-    border-color: #00d95a;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 217, 90, 0.2);
-}
-.nashar-link:hover .en-name {
+.nashar-text {
+    position: relative;
+    z-index: 10;
+    font-weight: 700;
     color: #00d95a;
+    transition: color 0.3s ease;
+    font-size: 15px;
 }
-.nashar-link:hover .ar-name {
+.hover-bg {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 217, 90, 0.05);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+.nashar-btn:hover {
+    border-color: rgba(0, 217, 90, 0.5);
+    transform: translateY(-1px);
+}
+.nashar-btn:hover .nashar-text {
     color: #fff;
 }
-.nashar-link::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-    transition: 0.5s;
-}
-.nashar-link:hover::after {
-    left: 100%;
+.nashar-btn:hover .hover-bg {
+    transform: translateY(0);
+    background: #00d95a;
 }
 </style>
 </head>
@@ -659,17 +644,18 @@
                 </div>
 
                 
+                
                 <div class="ebftr2-footer-bottom">
                     <p>جميع الحقوق محفوظة © 2026 | مندوب زين 5G </p>
-                    <div class="nashar-hub-credit">
-                        <span class="credit-text">CREATED BY</span>
-                        <a rel="nofollow noopener noreferrer" href="https://nasharhub.com/" target="_blank" class="nashar-link">
-                            <span class="en-name">Nashar Hub</span>
-                            <span class="separator">|</span>
-                            <span class="ar-name">نشار هب</span>
+                    <div class="nashar-hub-container">
+                        <span class="design-text">تم التصميم والتطوير بواسطة</span>
+                        <a href="https://NasharHub.com" target="_blank" rel="noopener noreferrer" class="nashar-btn">
+                            <span class="nashar-text">NasharHub.com</span>
+                            <span class="hover-bg"></span>
                         </a>
                     </div>
                 </div>
+</div>
 
 
             </div>
