@@ -31,9 +31,14 @@
     ExpiresByType image/webp "access plus 1 year"
 </IfModule>
 
-# Redirect HTTP to HTTPS
+# Redirects and HTTPS
 <IfModule mod_rewrite.c>
     RewriteEngine On
+
+    # 301 Redirect for Contact Page
+    Redirect 301 "/تواصل-معنا.html" "/contact"
+
+    # Redirect HTTP to HTTPS
     RewriteCond %{HTTPS} off
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
