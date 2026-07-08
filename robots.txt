@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /127.0.0.1_8081/
 
 Sitemap: https://mandoubzain5g.com/sitemap.xml
