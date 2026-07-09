@@ -1,55 +1,39 @@
-# Enable HSTS (HTTP Strict Transport Security)
+# 1. HSTS (Security)
 <IfModule mod_headers.c>
-    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
 </IfModule>
 
-# Enable GZIP compression
+# 2. Performance (GZIP)
 <IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/plain
-    AddOutputFilterByType DEFLATE text/html
-    AddOutputFilterByType DEFLATE text/xml
-    AddOutputFilterByType DEFLATE text/css
-    AddOutputFilterByType DEFLATE text/javascript
-    AddOutputFilterByType DEFLATE application/xml
-    AddOutputFilterByType DEFLATE application/xhtml+xml
-    AddOutputFilterByType DEFLATE application/rss+xml
-    AddOutputFilterByType DEFLATE application/javascript
-    AddOutputFilterByType DEFLATE application/x-javascript
-    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE text/plain text/html text/xml text/css text/javascript application/xml application/xhtml+xml application/rss+xml application/javascript application/x-javascript application/json
 </IfModule>
 
-# Cache control
+# 3. Cache Control
 <IfModule mod_expires.c>
     ExpiresActive On
     ExpiresDefault "access plus 1 month"
     ExpiresByType text/html "access plus 1 week"
-    ExpiresByType text/css "access plus 1 year"
-    ExpiresByType application/javascript "access plus 1 year"
-    ExpiresByType image/jpeg "access plus 1 year"
-    ExpiresByType image/gif "access plus 1 year"
-    ExpiresByType image/png "access plus 1 year"
-    ExpiresByType image/webp "access plus 1 year"
 </IfModule>
 
-# Redirects and HTTPS
+# 4. Redirects (301 Permanent)
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /
 
-    # Force 301 Redirect for Contact Page (Arabic and HTML)
-    Redirect 301 "/تواصل-معنا.html" "https://mandoubzain5g.com/contact"
+    # Redirect Arabic Contact Page to /contact.html (301)
+    RewriteRule ^تواصل-معنا\.html$ contact.html [R=301,L]
     
-    # 301 Redirects for clean URLs to avoid 302/307 issues
-    RewriteRule ^about$ about.html [L]
-    RewriteRule ^contact$ contact.html [L]
-    RewriteRule ^باقات$ باقات.html [L]
-    RewriteRule ^روابط-اخرى$ روابط-اخرى.html [L]
-    RewriteRule ^blog/$ blog/index.html [L]
+    # Force WWW to Non-WWW (Optional but good for SEO consistency)
+    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+    RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
-    # Handle pages folder
-    RewriteRule ^pages/ما-هى-باقات-نت-زين$ pages/ما-هى-باقات-نت-زين.html [L]
-
-    # Redirect HTTP to HTTPS 301 Permanent
+    # Force HTTP to HTTPS (301)
     RewriteCond %{HTTPS} off
-    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+    # Ensure all direct requests to .html pages are served correctly
+    # (Cloudflare Pages handles this, but explicit rules help SEO tools)
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}\.html -f
+    RewriteRule ^(.*)$ $1.html [L]
 </IfModule>
