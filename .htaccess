@@ -34,11 +34,22 @@
 # Redirects and HTTPS
 <IfModule mod_rewrite.c>
     RewriteEngine On
+    RewriteBase /
 
-    # 301 Redirect for Contact Page
-    Redirect 301 "/تواصل-معنا.html" "/contact"
+    # Force 301 Redirect for Contact Page (Arabic and HTML)
+    Redirect 301 "/تواصل-معنا.html" "https://mandoubzain5g.com/contact"
+    
+    # 301 Redirects for clean URLs to avoid 302/307 issues
+    RewriteRule ^about$ about.html [L]
+    RewriteRule ^contact$ contact.html [L]
+    RewriteRule ^باقات$ باقات.html [L]
+    RewriteRule ^روابط-اخرى$ روابط-اخرى.html [L]
+    RewriteRule ^blog/$ blog/index.html [L]
 
-    # Redirect HTTP to HTTPS
+    # Handle pages folder
+    RewriteRule ^pages/ما-هى-باقات-نت-زين$ pages/ما-هى-باقات-نت-زين.html [L]
+
+    # Redirect HTTP to HTTPS 301 Permanent
     RewriteCond %{HTTPS} off
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
