@@ -6,8 +6,8 @@ with open(file_path, 'r', encoding='utf-8') as f:
     content = f.read()
 
 # 1. Update Phone Numbers
-content = content.replace('0508348048', '0537394981')
-content = content.replace('966508348048', '966537394981')
+content = content.replace('0572587855', '0537394981')
+content = content.replace('966572587855', '966537394981')
 
 # 2. Fix Paths (Change ./ to ../ for assets)
 # We need to be careful not to break links like ./img/logo.webp

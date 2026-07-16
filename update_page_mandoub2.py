@@ -6,8 +6,8 @@ with open(file_path, 'r', encoding='utf-8') as f:
     content = f.read()
 
 # 1. Update Phone Numbers
-content = content.replace('0508348048', '0545478583')
-content = content.replace('966508348048', '966545478583')
+content = content.replace('0572587855', '0545478583')
+content = content.replace('966572587855', '966545478583')
 
 # 2. Fix Paths (Change ./ to ../ for assets)
 content = content.replace('href="./', 'href="../')
