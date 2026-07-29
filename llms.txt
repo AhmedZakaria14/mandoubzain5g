@@ -16,6 +16,7 @@ Mandoub Zain 5G is a leading provider of Zain Saudi Arabia's 5G and fiber optic 
 
 ## Sitemap
 - Home: https://mandoubzain5g.com/
+- NasharHub Internet: https://mandoubzain5g.com/nasharhubinternet
 - Blog: https://mandoubzain5g.com/blog/
 - Plans: https://mandoubzain5g.com/باقات.html
 - About: https://mandoubzain5g.com/about.html
