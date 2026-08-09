@@ -1,0 +1,60 @@
+name: One-time SEO phone title update
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-seo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Add 0572587855 to homepage SEO title metadata
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          path = Path('index.html')
+          text = path.read_text(encoding='utf-8')
+
+          old_title = 'مندوب زين فى الرياض | باقات 5G وفايبر بأفضل الأسعار'
+          new_title = 'مندوب زين في الرياض 0572587855 | باقات 5G وفايبر'
+
+          old_desc = 'مندوب زين المعتمد في الرياض. باقات إنترنت 5G وألياف بصرية تبدأ من 239 ريال، راوتر مجاني، تركيب فوري، وتغطية شاملة لكافة أحياء الرياض. اتصل الآن!'
+          new_desc = 'مندوب زين المعتمد في الرياض 0572587855. باقات إنترنت 5G وفايبر تبدأ من 239 ريال، راوتر مجاني، تركيب فوري وتغطية شاملة لأحياء الرياض. اتصل الآن.'
+
+          old_keywords = 'مندوب زين, زين 5G, عروض زين 5G, إنترنت منزلي زين, باقات زين, تركيب زين 5G,مندوب زين G5 في الرياض , راوتر زين, الإنترنت المنزلي السعودية'
+          new_keywords = 'مندوب زين, رقم مندوب زين 0572587855, 0572587855, زين 5G, عروض زين 5G, إنترنت منزلي زين, باقات زين, تركيب زين 5G, مندوب زين G5 في الرياض, راوتر زين, الإنترنت المنزلي السعودية'
+
+          if old_title not in text and new_title not in text:
+              raise SystemExit('Expected homepage title was not found; refusing an unsafe edit.')
+          if old_desc not in text and new_desc not in text:
+              raise SystemExit('Expected homepage description was not found; refusing an unsafe edit.')
+
+          text = text.replace(old_title, new_title)
+          text = text.replace(old_desc, new_desc)
+          text = text.replace(old_keywords, new_keywords)
+
+          path.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Commit SEO change and remove one-time workflow
+        shell: bash
+        run: |
+          rm -f .github/workflows/seo-phone-title.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes needed."
+            exit 0
+          fi
+          git commit -m "SEO: show 0572587855 in homepage search titles [skip ci]"
+          git push origin HEAD:main
