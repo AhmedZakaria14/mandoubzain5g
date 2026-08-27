@@ -513,3 +513,12 @@ main {
         width: 100%;
     }
 }
+
+/* Keep the article header opaque while scrolling. */
+.ebhdr3-hdr,
+.ebhdr3-hdr.ebhdr3-nav--scrolled {
+    background: #fff !important;
+    background-color: #fff !important;
+    opacity: 1 !important;
+    isolation: isolate;
+}
